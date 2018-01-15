@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpingMvcDemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="mysteel-mgr.war">
+      <element id="artifact" artifact-name="SpingMvcDemo:war exploded" />
+    </root>
+  </artifact>
+</component>

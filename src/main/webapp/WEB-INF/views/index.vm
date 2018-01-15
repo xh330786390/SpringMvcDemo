@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td></td>
+    </tr>
+    #foreach($info in $list)
+        <tr>
+            <td>$info.dataName</td>
+            <td></td>
+            <td></td>
+        </tr>
+    #end
+</table>
+</body>
+</html>
