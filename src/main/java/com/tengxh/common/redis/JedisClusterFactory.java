@@ -46,6 +46,8 @@ public class JedisClusterFactory implements FactoryBean<JedisCluster>, Initializ
     @Override
     public Class<? extends JedisCluster> getObjectType() {
         return (this.jedisCluster != null ? this.jedisCluster.getClass() : JedisCluster.class);
+
+
     }
 
     @Override
