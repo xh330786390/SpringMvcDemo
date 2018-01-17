@@ -1,6 +1,8 @@
 package com.tengxh.entity;
 
-public class DataInfo {
+import java.io.Serializable;
+
+public class DataInfo implements Serializable {
     private long id;
     private String dataName;
 

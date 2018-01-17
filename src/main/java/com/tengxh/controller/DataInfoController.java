@@ -1,7 +1,6 @@
 package com.tengxh.controller;
 
 import com.tengxh.entity.DataInfo;
-import com.tengxh.es.OrderEsCommonRepository;
 import com.tengxh.service.DataInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +15,23 @@ class DataInfoController {
     @Autowired
     public DataInfoService dataInfoService;
 
-    @Autowired
-    public OrderEsCommonRepository orderEsCommonRepository;
+    //@Autowired
+    //public OrderEsCommonRepository orderEsCommonRepository;
+
 
     @RequestMapping("/")
     public ModelAndView getIndex() {
 
-        orderEsCommonRepository.createOrderIndex();
+//
+//        String queue_key = "test_queue_key";
+//        Map<String,Object> msg = new HashMap();
+//        msg.put("data","hello,rabbmitmq!");
+//        mqProducer.sendDataToQueue(queue_key,msg);
+//        mqProducer.sendDataToQueue(queue_key,msg);
+
+//        orderEsCommonRepository = new OrderRepositoryImpl();
+
+//        orderEsCommonRepository.createOrderIndex();
 
         ModelAndView mav = new ModelAndView("index");
 

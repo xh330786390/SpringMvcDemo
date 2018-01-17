@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:elasticsearch="http://www.pilato.fr/schema/elasticsearch"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
-        http://www.pilato.fr/schema/elasticsearch http://www.pilato.fr/schema/elasticsearch/elasticsearch-0.3.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+       xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/data/elasticsearch http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch.xsd"
+       default-lazy-init="false">
 
-    <util:map id="esproperties">
-        <entry key="cluster.name" value="${elasticsearch.cluster.name}" />
-    </util:map>
-
-    <elasticsearch:client id="client" properties="esproperties" esNodes="${elasticsearch.esNodes}" />
+    <elasticsearch:transport-client id="client" cluster-nodes="${elasticsearch.es.nodes}"
+                                    cluster-name="${elasticsearch.cluster.name}"/>
 
     <bean name="elasticsearchTemplate"
           class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
-        <constructor-arg name="client" ref="client" />
+        <constructor-arg name="client" ref="client"/>
     </bean>
 
-    <bean name="orderRepositoryImpl" class="com.tengxh.es.impl.OrderRepositoryImpl">
+    <bean name="orderRepositoryImpl" class="com.tengxh.component.ealsticsearch.impl.OrderRepositoryImpl">
         <property name="elasticsearchTemplate" ref="elasticsearchTemplate"/>
     </bean>
 </beans>

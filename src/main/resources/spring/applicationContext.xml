@@ -31,12 +31,14 @@
     <import resource="classpath:/spring/spring-redis-single.xml" />
     <import resource="classpath:/spring/spring-redis-cluster.xml" />
     <import resource="classpath:/spring/spring-elasticseach.xml" />
-
+    <import resource="classpath:/spring/spring-rabbitmq.xml" />
 
     <!-- 自动扫描注解的bean -->
     <context:component-scan base-package="com.tengxh.dao"/>
     <context:component-scan base-package="com.tengxh.service"/>
+    <context:component-scan base-package="com.tengxh.component.ealsticsearch"/>
+    <context:component-scan base-package="com.tengxh.component.redis"/>
     <context:component-scan base-package="com.tengxh.controller"/>
     <context:component-scan base-package="com.tengxh.entity"/>
-
+    <context:component-scan base-package="com.tengxh.component.rabbitmq" />
 </beans>

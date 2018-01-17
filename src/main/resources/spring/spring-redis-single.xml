@@ -22,7 +22,8 @@
         <!--<property name="port" value="6379"/>-->
         <!--<property name="hostName" value="192.168.200.187"/>-->
         <!--<property name="password" value=""/>-->
-        <!--<property name="timeout" value="100000"></property>-->
+        <!--<property name="timeout" value="100000"></prop
+        erty>-->
     <!--</bean>-->
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}"/>
@@ -31,7 +32,7 @@
     </bean>
 
     <!-- redis服务器中心 -->
-    <bean id="connectionFactory"
+    <bean id="connectionFactory1"
           class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
         <property name="poolConfig" ref="poolConfig"/>
         <property name="port" value="${redis.port}"/>
@@ -40,18 +41,15 @@
         <property name="timeout" value="${redis.timeout}"></property>
     </bean>
 
+
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
-        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="connectionFactory" ref="connectionFactory1"/>
         <property name="keySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
         </property>
         <property name="valueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>
-    </bean>
-
-    <bean id="redisHelper" class="com.tengxh.common.redis.RedisHelper">
-        <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
 </beans>
 
