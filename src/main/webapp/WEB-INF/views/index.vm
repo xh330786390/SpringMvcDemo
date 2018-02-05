@@ -11,7 +11,7 @@
     </tr>
     #foreach($info in $list)
         <tr>
-            <td>$info.dataName</td>
+            <td>$info.name</td>
             <td></td>
             <td></td>
         </tr>

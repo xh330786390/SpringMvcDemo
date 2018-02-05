@@ -18,26 +18,28 @@
 
     <!-- 对模型视图添加前后缀 -->
     <!---视图 jsp-->
-    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
-    <!--p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
     <!---视图 vm-->
-    <bean id="velocityConfig"
-          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <property name="resourceLoaderPath">
-            <value>/WEB-INF/views</value>
-        </property>
-    </bean>
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-        <property name="suffix">
-            <value>.vm</value>
-        </property>
-        <property name="contentType">
-            <value>text/html;charset=utf-8</value>
-        </property>
-        <!--<property name="requestContextAttribute" value="true" />-->
-        <!--<property name="exposeSessionAttributes" value="true" />-->
-        <!--<property name="exposeRequestAttributes" value="true" />-->
-    </bean>
+    <!--<bean id="velocityConfig"-->
+          <!--class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
+        <!--<property name="resourceLoaderPath">-->
+            <!--<value>/WEB-INF/views</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="viewResolver"-->
+          <!--class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">-->
+        <!--<property name="suffix">-->
+            <!--<value>.vm</value>-->
+        <!--</property>-->
+        <!--<property name="contentType">-->
+            <!--<value>text/html;charset=utf-8</value>-->
+        <!--</property>-->
+        <!--&lt;!&ndash;<property name="requestContextAttribute" value="true" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="exposeSessionAttributes" value="true" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="exposeRequestAttributes" value="true" />&ndash;&gt;-->
+    <!--</bean>-->
 </beans>

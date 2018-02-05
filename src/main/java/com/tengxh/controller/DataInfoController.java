@@ -1,5 +1,6 @@
 package com.tengxh.controller;
 
+import com.tengxh.component.rabbitmq.publish.PublishService;
 import com.tengxh.entity.DataInfo;
 import com.tengxh.service.DataInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,16 @@ class DataInfoController {
     @Autowired
     public DataInfoService dataInfoService;
 
+    @Autowired
+    public PublishService publishService;
     //@Autowired
     //public OrderEsCommonRepository orderEsCommonRepository;
 
 
     @RequestMapping("/")
     public ModelAndView getIndex() {
+
+        publishService.send("DIRECT_EX", "CONFIRM_TEST","hello");
 
 //
 //        String queue_key = "test_queue_key";
@@ -29,9 +34,6 @@ class DataInfoController {
 //        mqProducer.sendDataToQueue(queue_key,msg);
 //        mqProducer.sendDataToQueue(queue_key,msg);
 
-//        orderEsCommonRepository = new OrderRepositoryImpl();
-
-//        orderEsCommonRepository.createOrderIndex();
 
         ModelAndView mav = new ModelAndView("index");
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tengxh.dao.UserDao">
+    <resultMap id="UserMap" type="com.tengxh.entity.User">
+        <result column="id" property="id" jdbcType="CHAR"/>
+        <result column="name" property="name" jdbcType="CHAR"/>
+    </resultMap>
+
+    <!-- 获取用户列表 -->
+    <select id="selectUser" resultMap="UserMap">
+	select id,name from USER_INFO
+    </select>
+
+    <!-- 获取指定用户 -->
+    <select id="getUserById" resultMap="UserMap">
+        select id,name from USER_INFO where ID=#{Id}
+    </select>
+
+    <!-- 添加用户 -->
+    <insert id="addUser" parameterType="com.tengxh.entity.User">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select SEQUENCE_User_Info.NEXTVAL from dual
+        </selectKey>
+        INSERT INTO USER_INFO
+        (id, name)
+        VALUES (#{id}, #{name})
+    </insert>
+
+    <!-- 修改用户信心-->
+    <update id="updateUser" parameterType="com.tengxh.entity.User">
+        UPDATE
+        USER_INFO
+        SET
+        Name = #{name}
+        WHERE
+        Id = #{id}
+    </update>
+
+    <!-- 删除用户-->
+    <delete id="deleteUser" parameterType="int">
+        delete from USER_INFO where ID=#{Id}
+    </delete>
+</mapper>
+
+
+

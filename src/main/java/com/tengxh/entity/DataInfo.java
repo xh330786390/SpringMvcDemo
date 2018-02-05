@@ -2,6 +2,13 @@ package com.tengxh.entity;
 
 import java.io.Serializable;
 
+/**
+ * Demo class
+ *
+ * @author tengxh
+ * @date 2018/01/31
+ */
+
 public class DataInfo implements Serializable {
     private long id;
     private String dataName;

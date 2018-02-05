@@ -15,12 +15,12 @@
     <!--开始引入 properties文件-->
     <!-- 引入配置文件方式 @@1-->
     <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="locations">-->
-            <!--<list>-->
-                <!--<value>classpath:properties/*.properties</value>-->
-                <!--&lt;!&ndash;要是有多个配置文件，只需在这里继续添加即可 &ndash;&gt;-->
-            <!--</list>-->
-        <!--</property>-->
+    <!--<property name="locations">-->
+    <!--<list>-->
+    <!--<value>classpath:properties/*.properties</value>-->
+    <!--&lt;!&ndash;要是有多个配置文件，只需在这里继续添加即可 &ndash;&gt;-->
+    <!--</list>-->
+    <!--</property>-->
     <!--</bean>-->
 
     <!-- 引入配置文件方式 @@2-->
@@ -28,17 +28,18 @@
     <!--结束引入 properties文件-->
 
     <import resource="classpath:/spring/spring-datasource.xml"/>
-    <import resource="classpath:/spring/spring-redis-single.xml" />
-    <import resource="classpath:/spring/spring-redis-cluster.xml" />
-    <import resource="classpath:/spring/spring-elasticseach.xml" />
-    <import resource="classpath:/spring/spring-rabbitmq.xml" />
+    <import resource="classpath:/spring/spring-redis-single.xml"/>
+    <import resource="classpath:/spring/spring-redis-cluster.xml"/>
+    <import resource="classpath:/spring/spring-elasticseach.xml"/>
+    <import resource="classpath:/spring/spring-rabbitmq.xml"/>
 
     <!-- 自动扫描注解的bean -->
     <context:component-scan base-package="com.tengxh.dao"/>
     <context:component-scan base-package="com.tengxh.service"/>
-    <context:component-scan base-package="com.tengxh.component.ealsticsearch"/>
     <context:component-scan base-package="com.tengxh.component.redis"/>
+    <context:component-scan base-package="com.tengxh.component.rabbitmq"/>
     <context:component-scan base-package="com.tengxh.controller"/>
     <context:component-scan base-package="com.tengxh.entity"/>
-    <context:component-scan base-package="com.tengxh.component.rabbitmq" />
+    <context:component-scan base-package="com.tengxh.component.rabbitmq"/>
+
 </beans>

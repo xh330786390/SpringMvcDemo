@@ -12,23 +12,26 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String id) {
-    }
-
-    public User(String id, String name) {
+    public User(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    private String id;
+    /**
+     *用户Id
+     * */
+    private Integer id;
 
+    /**
+     *用户名称
+     * */
     private String name;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -38,10 +41,6 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String toString() {
-        return "User [id=" + id + ", name=" + name + "]";
     }
 
     public String getKey() {
