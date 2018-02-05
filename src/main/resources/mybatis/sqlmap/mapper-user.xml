@@ -3,18 +3,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tengxh.dao.UserDao">
     <resultMap id="UserMap" type="com.tengxh.entity.User">
-        <result column="id" property="id" jdbcType="CHAR"/>
+        <result column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="CHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
     </resultMap>
 
     <!-- 获取用户列表 -->
     <select id="selectUser" resultMap="UserMap">
-	select id,name from USER_INFO
+	select id,name,age from USER_INFO
     </select>
 
     <!-- 获取指定用户 -->
     <select id="getUserById" resultMap="UserMap">
-        select id,name from USER_INFO where ID=#{Id}
+        select id,name,age from USER_INFO where ID=#{Id}
     </select>
 
     <!-- 添加用户 -->
@@ -23,8 +24,8 @@
             select SEQUENCE_User_Info.NEXTVAL from dual
         </selectKey>
         INSERT INTO USER_INFO
-        (id, name)
-        VALUES (#{id}, #{name})
+        (id, name,age)
+        VALUES (#{id}, #{name},#{age})
     </insert>
 
     <!-- 修改用户信心-->
@@ -32,7 +33,8 @@
         UPDATE
         USER_INFO
         SET
-        Name = #{name}
+        Name = #{name},
+        age = #{age}
         WHERE
         Id = #{id}
     </update>

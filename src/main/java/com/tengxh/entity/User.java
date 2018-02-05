@@ -27,6 +27,11 @@ public class User implements Serializable {
      * */
     private String name;
 
+    /**
+     *用户Id
+     * */
+    private Integer age;
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +50,13 @@ public class User implements Serializable {
 
     public String getKey() {
         return OBJECT_KEY + "_" + getId();
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

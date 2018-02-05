@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,15 +16,16 @@
         <div class="col-lg-8 col-xs-offset-1">
             <h3>新增用户</h3>
             <table class="table table-bordered">
-                <tr>
-                    <td align="right">
-                        Id：
-                    </td>
-                    <td><input type="text" name="type"></td>
-                </tr>
+
                 <tr>
                     <td align="right">姓名：</td>
                     <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        年龄：
+                    </td>
+                    <td><input type="text" name="age"></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">

@@ -2,9 +2,7 @@
          pageEncoding="GBK" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%
-    pageContext.setAttribute("path", request.getContextPath());
-%>
+
 <jsp:directive.page import="com.tengxh.entity.User"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,8 +46,8 @@
         <div class="col-lg-8 col-xs-offset-1">
             <table class="table table-bordered">
                 <tr>
-                    <th>Id</th>
                     <th>姓名</th>
+                    <th>年龄</th>
                     <th>操作&nbsp;&nbsp;
                         <button type="button" class="btn btn-default btn-sm" onclick="MemAdd()">新增</button>
                     </th>
@@ -58,8 +56,8 @@
                     <c:when test="${not empty requestScope.list }">
                         <c:forEach items="${requestScope.list}" var="item">
                             <tr>
-                                <td>${item.id}</td>
                                 <td>${item.name}</td>
+                                <td>${item.age}</td>
                                 <td><a href="updateUserView?Id=${item.id}">编辑</a>&nbsp;&nbsp;
                                     <a href='javascript:void(0)' onclick="deleteUser(${item.id})">删除</a>
                                 </td>
